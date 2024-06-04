@@ -1,0 +1,528 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif!important;
+    line-height: 1.6!important;
+    color: #333!important;
+    background-color: #f4f4f4!important;
+}
+
+/* Navigation bar styles */
+.navbar {
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
+    background-color: #43b02a;
+    color: white;
+    padding: 1rem 2rem!important;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    line-height: 1.6!important;
+}
+
+.nav-links_header {
+    list-style-type: none;
+    margin-bottom: 0!important;
+    padding-left: 0!important;
+}
+
+.nav-links_header li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-links_header a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+/* слайдер */
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 2000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  opacity: 1!important;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ПОЧЕМУ ВЫБРАЛИ НАС */
+..why-choose-us {
+  padding: 30px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.why-choose-us h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.reasons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reason-image {
+  width: 50px;
+  height: 50px;
+}
+
+.reason-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.reason-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reason h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.reason p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+/* Стили для подвала */
+
+footer {
+  background-color: #333;
+  color: #fff;     
+  padding: 30px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.footer-contact {
+  margin-right: 30px;
+}
+
+.footer-contact h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 5px;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: #fff;
+}
+
+.footer-links {
+  margin-right: 30px;
+}
+
+.footer-links h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 5px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-social {
+}
+
+.footer-social h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-social ul {
+  list-style: none;
+  display: flex;
+}
+
+.footer-social li {
+  margin-right: 10px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  color: #fff;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+
+
+/* линия разделитель */
+.divider {
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+
+/* =========== Продукты =============== */
+.products{
+  margin-top: 100px;
+}
+/* фильтр */
+
+.products_filterr_category h3,
+.products_filterr_price h3
+{
+  color: #33333381;
+}
+.products_filterr_category ul>li>a{
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
+
+}
+.products_filterr_category ul>li>a:hover{
+  text-decoration: underline;
+}
+
+/* цена  */
+.products_filterr_price{
+  width: 80%;
+}
+.price_input_total_amount
+{
+  width: 100%;
+  display: flex;
+  margin: 0px 0 15px;
+}
+.price_input_total_amount .field
+{
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+}
+.field input{
+  width: 100%;
+  /*height: 100%;*/
+  box-shadow: none !important;
+  margin:0  !important;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  /*border: 1px solid #999;*/
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price_input_total_amount .separator
+{
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.slider_total_amount
+{
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.slider_total_amount .progress_total_ammount
+{
+  height: 100%;
+  left: 0%;
+  right: 0%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17A2B8;
+}
+.range_input_total_amount
+{
+  position: relative;
+}
+.range_input_total_amount input
+{
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+input[type="range"]::-moz-range-thumb{
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+
+.input_style {
+  /* margin-top: 4px; */
+  margin-bottom: 4px;
+  padding: 5px 10px;
+  border: none;
+  border: 1px solid #aaaaaa;
+  background: #fff;
+  border-radius: 4px;
+  color: #333b3f;
+  outline: none;
+  font-size: 16px;
+}
+
+.list_category li>a{
+  cursor: pointer;
+}
+
+.filter_btn_accardion {
+  display: none!important;
+}
+
+.modal-dialog{
+  max-width: 80vw!important;
+}
+.modal-content{
+  height: 90vh!important;
+}
+.image_product_modal{
+  width: 100%;
+  height: 50vh;
+}
+.image_product_modal img{
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .filter_btn_accardion {
+    display: block!important;
+    margin-bottom: 50px;
+  }
+  .main_filter{
+    display: none!important;
+  }
+  .modal-dialog{
+    max-width: 100vw!important;
+  }
+  .modal-content{
+    height: 100%!important;
+  }
+  .image_product_modal{
+    width: 100%;
+    height: 350px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#about-us {
+  padding: 50px 0;
+  background-color: #f5f5f5;
+}
+
+#about-us img {
+  border-radius: 10px;
+}
+
+#about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+
+
+
+

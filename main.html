@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ландшафт Про - магазин садовых принадлежностей</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Ландшафт Про</h1>
+      </div>
+      <ul class="nav-links_header">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#products" id="products-link">Продукты</a></li>
+        <li><a href="#about-us" id="about-us-link">О нас</a></li>
+        <li><a href="#footer" id="contact-us-link">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+
+      <img src="images/slider/logo1.png" style="width:100%">
+
+    </div>
+
+    <div class="mySlides fade">
+
+      <img src="images/slider/logo2.png" style="width:100%">
+
+    </div>
+
+    <div class="mySlides fade">
+
+      <img src="images/slider/logo3.png" style="width:100%">
+
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <div class="divider"></div>
+  
+
+<section id="products">
+  <section class="products container-fluid px-lg-5 px-md-2 mb-5">
+    <div class="products_container ">
+      <!-- сортировка -->
+      <div class="products_sort__container d-flex justify-content-end container-fluid">
+        <div class="products_sort__content">
+          <div class="row justify-content-end">
+            <div class="col-lg-5 col-md-12 me-lg-3 me-md-0 p-0 mb-4">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                <input id="search" type="text" class="form-control" placeholder="Поиск" aria-label="Поиск"
+                  aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 p-0">
+              <select id="sort" class="form-select" aria-label="Default select example">
+                <option value="default_sort" selected>Порядок по умолчанию</option>
+                <option value="price_top">Цена по возрастанию</option>
+                <option value="price_bottom">Цена по убыванию</option>
+                <option value="name_top">Название А-Я</option>
+                <option value="name_bottom">Название Я-А</option>
+                <option value="date_new">Порядок: сперва новые</option>
+                <option value="date_old">Порядок: сперва старые</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products_content  mt-5 ">
+        <button id="filter_btn_accardion" class="btn btn-outline-primary w-100 filter_btn_accardion" type="button"
+          data-bs-toggle="collapse" data-bs-target="#filterAccordion" aria-expanded="false"
+          aria-controls="filterAccordion">
+          Фильтр
+        </button>
+        <!-- Аккордеон с фильтром -->
+        <div class="collapse" id="filterAccordion">
+          <div class="row mb-5">
+            <div class="products_filter col-lg-3">
+              <div class="products_filterr_category d-flex flex-column justify-content-center align-items-center">
+                <h3>Категории</h3>
+                <ul class="list_category ps-0 d-flex flex-column justify-content-center align-items-center">
+                  
+                </ul>
+              </div>
+              <div class="products_filterr_price w-100 ">
+                <h3 class="text-center">Цена</h3>
+                <div>
+                  <div class="price_input_total_amount" id="price_input_total_amount_mobile">
+                    <div class="field">
+                      <input type="number" class="input-min input_style input_from_total_amount_filter"
+                        id="input_from_total_amount_filter_mobile" value="0">
+                    </div>
+                    <div class="separator">-</div>
+                    <div class="field">
+
+                      <input type="number" class="input-max input_style input_before_total_amount_filter"
+                        id="input_before_total_amount_filter_mobile" placeholder="99999">
+                    </div>
+                  </div>
+                  <div class="slider_total_amount" id="slider_total_amount_mobile">
+                    <div class="progress_total_ammount"></div>
+                  </div>
+                  <div class="range_input_total_amount" id="range_input_total_amount_mobile">
+                    <input type="range" class="range-min_mobile" min="0" max="99999" value="0" step="10">
+                    <input type="range" class="range-max_mobile" min="0" max="99999" value="99999" step="10">
+                  </div>
+                </div>
+              </div>
+              <div class="reset_filter mt-5 d-flex justify-content-center align-items-center">
+                <button class="btn btn-outline-secondary" id="reset_filter">Сбросить фильтр</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="products_filter col-lg-3 col-md-12 main_filter">
+            <div class="products_filterr_category">
+              <h3>Категории</h3>
+              <ul class="list_category ps-0">
+                
+              </ul>
+            </div>
+            <div class="products_filterr_price">
+              <h3>Цена</h3>
+              <div>
+                <div class="price_input_total_amount" id="price_input_total_amount">
+                  <div class="field">
+                    <input type="number" class="input-min input_style input_from_total_amount_filter"
+                      id="input_from_total_amount_filter" value="0">
+                  </div>
+                  <div class="separator">-</div>
+                  <div class="field">
+
+                    <input type="number" class="input-max input_style input_before_total_amount_filter"
+                      id="input_before_total_amount_filter" placeholder="99000">
+                  </div>
+                </div>
+                <div class="slider_total_amount" id="slider_total_amount">
+                  <div class="progress_total_ammount"></div>
+                </div>
+                <div class="range_input_total_amount" id="range_input_total_amount">
+                  <input type="range" class="range-min" min="0" max="99999" value="0" step="10">
+                  <input type="range" class="range-max" min="0" max="99999" value="99999" step="10">
+                </div>
+              </div>
+            </div>
+            <div class="reset_filter mt-5">
+              <button class="btn btn-outline-secondary" id="reset_filter">Сбросить фильтр</button>
+            </div>
+          </div>
+          <div class="cards_content col-lg-9 col-md-12">
+            <div class="card_items row" id="cards"></div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+  </section>
+</section>  
+  
+  <div class="divider"></div>
+
+  <section class="why-choose-us">
+    <h2>Почему мы?</h2>
+    <div class="reasons">
+      <div class="reason">
+        <div class="reason-content">
+          <div class="reason-image">
+            <img src="images/whychooseus/whychoose1.png" alt="">
+          </div>
+          <div class="reason-content">
+            <h3>Высокое качество</h3>
+            <p>Высококачественные продукты, изготовленные из прочных и качественных материалов.<br> Надежные и
+              проверенные производители. Широкий ассортимент и грамотные консультанты<br> помогут вам сделать правильный
+              выбор и решить поставленную задачу максимально эффективно.</p>
+          </div>
+        </div>
+        <div class="reason">
+          <div class="reason-content">
+            <div class="reason-image">
+              <img src="images/whychooseus/whychoose2.png" alt="">
+            </div>
+            <div class="reason-content">
+              <h3>Онлайн поддержка</h3>
+              <p>Мы всегда готовы ответить на ваши вопросы. Вы можете позвонить нам<br> или написать. Также можете
+                посетить наш магазин для личной консультации.</p>
+            </div>
+          </div>
+          <div class="reason">
+            <div class="reason-content">
+              <div class="reason-image">
+                <img src="images/whychooseus/whychoose3.png" alt="">
+              </div>
+              <div class="reason-content">
+                <h3>Удобство</h3>
+                <p>Удобный процесс покупки как онлайн, так и в нашем розничном магазине.<br> На сайте вы сможете с
+                  легкостью подобрать нужный для вас товар и узнать<br> подробное описание о нём.</p>
+              </div>
+            </div>
+          </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+
+
+<section id="about-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="images/whyus/1584198060_48-p-severnii-landshaftnii-dizain-88.jpg" alt="О нас" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h2>О нас</h2>
+        <p>
+          Ландшафт Про, ваш надежный источник всего, 
+          что нужно для создания прекрасного сада! Мы - команда страстных садоводов, 
+          объединенных любовью к природе и желанием помочь вам воплотить в жизнь 
+          ваши садовые мечты.
+        </p>
+        <p>
+          Мы предлагаем широкий выбор качественных садовых принадлежностей 
+          и инструментов. 
+          Мы гордимся тем, что предлагаем качественную и надежную продукцию от ведущих производителей, 
+          чтобы вы могли быть уверены в ее качестве и долговечности.
+        </p>
+        <p>
+          Наша команда всегда готова помочь вам с выбором, 
+          предоставить полезные советы и рекомендации по уходу за растениями. 
+          Мы стремимся сделать ваш опыт покупки приятным и информативным, 
+          чтобы вы могли наслаждаться своим садом с максимальной пользой.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="footer">
+  <footer>
+    <div class="footer-content">
+      <div class="footer-contact">
+        <h3>Свяжитесь с нами</h3>
+        <ul>
+          <li><a href="tel:0123456789">0123456789</a></li>
+          <li><a href="mailto:contact@gardenshop.com">contact@contact.com</a></li>
+          <li><a href="https://www.gardenshop.com/location">Найти нас</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Ссылки</h3>
+        <ul>
+          <li><a href="index.html">Отзывы</a></li>
+          <li><a href="products.html">ВК</a></li>
+          <li><a href="about-us.html">Telegram</a></li>
+          <li><a href="contact-us.html"></a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3></h3>
+        <ul>
+          <li><a href="https://www.facebook.com/gardenshop"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.twitter.com/gardenshop"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://www.instagram.com/gardenshop"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.youtube.com/gardenshop"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2024 Landshaftpro. All Rights Reserved.</p>
+    </div>
+  </footer>
+</section>  
+
+  <div class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row m-lg-5 m-md-0">
+            <div class="col-md-5">
+              <div class="modal_image image_product_modal"></div>
+            </div>
+            <div class="col-md-7">
+              <h2 class="modal_title mt-4"></h2>
+
+              <p class="modal_price" style="font-weight: 600;font-size: 24px;color: coral;"></p>
+              <button class="btn btn-lg btn-primary"></button>
+
+
+              <p class="modal_description mt-5"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script>
+    
+    /// массив с данными для карточек
+    const product = [
+      {
+        id: 1,
+        name: 'Секатор садовый Okatsune',
+        description: 'Этот секатор идеально подходит для обрезки ветвей и стеблей до 25 мм в диаметре. С его удобными ручками и острыми лезвиями, вы сможете легко и быстро провести обрезку. Лезвия из высококачественной стали обеспечивают чистый и аккуратный срез, а эргономичная ручка обеспечивает комфорт при использовании.',
+        price: 5999,
+        img_url: 'карточки товаров/секаторы/Секатор садовый Okatsune 103.png',
+        category_id: 4,
+        date: '2022-01-01',
+      },
+      {
+        id: 2,
+        name: 'Секатор finland',
+        description: 'Наш секатор - это незаменимый инструмент для любого садовода. Он оснащен прочными стальными лезвиями, которые обеспечивают чистый срез, и удобной ручкой, которая не устает в руке. Этот секатор идеален для обрезки цветов, виноградных лоз, мелких деревьев и кустарников.',
+        price: 3999,
+        img_url: 'карточки товаров/секаторы/секатор finland.png',
+        category_id: 4,
+        date: '2022-01-05',
+      },
+      {
+        id: 3,
+        name: 'Секатор Frut',
+        description: 'Этот секатор не только обеспечивает чистый и аккуратный срез, но и имеет встроенный открыватель для бутылок и инструмент для очистки лезвий. Его удобные ручки и прочные лезвия делают его идеальным инструментом для любого садовода. Он идеально подходит для обрезки ветвей, стеблей и цветов.',
+        price: 7999,
+        img_url: 'карточки товаров/секаторы/Секатор Frut.png',
+        category_id: 4,
+        date: '2022-04-03',
+      },
+      {
+        id: 4,
+        name: 'Лопата для пересадки ChgImposs',
+        description: 'Эта лопата идеально подходит для различных садовых работ, от перекопки грунта до высадки растений. Она имеет прочное стальное лезвие и удобную рукоятку, что обеспечивает комфорт при работе. Эта лопата - незаменимый инструмент для любого садовода.',
+        price: 2959,
+        img_url: 'карточки товаров/лопаты/Лопата для пересадки ChgImposs.png',
+        category_id: 3,
+        date: '2025-08-17',
+      },
+      {
+        id: 5,
+        name: 'Лопата совковая Fiskars Solid',
+        description: 'Наша лопата для садовых работ оснащена прочным стальным лезвием и удобной рукояткой. Она идеально подходит для перекопки грунта, высадки растений и других садовых работ. Эта лопата обеспечивает долговечность и эффективность, которые вы ожидаете от садового инструмента.',
+        price: 6999,
+        img_url: 'карточки товаров/лопаты/Лопата совковая Fiskars Solid.png',
+        category_id: 3,
+        date: '2024-01-07',
+      },
+      {
+        id: 6,
+        name: 'Лопата штыковая Finland',
+        description: 'Эта лопата обеспечивает высокую производительность для самых требовательных садовых работ. Она имеет прочное стальное лезвие и удобную рукоятку, что обеспечивает комфорт при работе. Эта лопата идеально подходит для перекопки грунта, высадки растений и других садовых работ.',
+        price: 3799,
+        img_url: 'карточки товаров/лопаты/Лопата штыковая Finland.png',
+        category_id: 3,
+        date: '2021-03-07',
+      },
+      {
+        id: 7,
+        name: 'Грабли Торнадика',
+        description: 'Эти грабли являются идеальным инструментом для уборки листьев и мусора в саду. Они имеют прочные зубцы, которые эффективно собирают мусор, и удобную рукоятку для комфортного использования. Эти грабли обеспечивают долговечность и эффективность, которые вы ожидаете от садового инструмента. Они идеально подходят для любых садовых работ, от уборки листьев до аэрации почвы.',
+        price: 1859,
+        img_url: 'карточки товаров/грабли/Грабли Торнадика.png',
+        category_id: 2,
+        date: '2023-09-27',
+      },
+      {
+        id: 8,
+        name: 'Бензиновая газонокосилка Patriot PT 46S',
+        description: 'Бензиновая газонокосилка Patriot PT 46S создана для того, чтобы газон всегда радовал владельца свежестью и опрятностью. Самоходная модель надежна и проста в эксплуатации. Устройство применяется не только для скашивания и сбора травы, но и для естественного удобрения почвы при помощи мульчирования.',
+        price: 25042,
+        img_url: 'карточки товаров/газонокосилки/orig.webp',
+        category_id: 5,
+        date: '2024-05-18',
+      },
+      {
+        id: 9,
+        name: 'Тест',
+        description: 'Бензиновая газонокосилка Patriot PT 46S создана для того, чтобы газон всегда радовал владельца свежестью и опрятностью. Самоходная модель надежна и проста в эксплуатации. Устройство применяется не только для скашивания и сбора травы, но и для естественного удобрения почвы при помощи мульчирования.',
+        price: 25042,
+        img_url: 'карточки товаров/газонокосилки/orig.webp',
+        category_id: 6,
+        date: '2024-05-18',
+      },    
+
+    ]
+
+    // массив с категориями
+    const category = [
+      {
+        id: 1,
+        name: 'Все',
+      },
+      {
+        id: 2,
+        name: 'Грабли',
+      },
+      {
+        id: 3,
+        name: 'Лопаты',
+      },
+      {
+        id: 4,
+        name: 'Секаторы',
+      },
+      {
+        id: 5,
+        name: 'Газонокосилки',
+      },
+      {
+        id: 6,
+        name: 'Тест',
+      },    
+    ]
+
+    /// логика 
+    $(document).ready(function () {
+      let filteredCards = [...product];
+      let defaultCards = [...product];
+      getData()
+
+
+      function filterCards(inputText) {
+        filteredCards = product.filter(card => card.name.toLowerCase().includes(inputText.toLowerCase()));
+      }
+
+
+      $('#search').on('input', function () {
+        const inputText = $(this).val();
+        filterCards(inputText);
+        getData()
+      });
+
+      $('#sort').on('change', function () {
+        const target = $(this).val();
+
+        switch (target) {
+          case 'price_top':
+            filteredCards = product.sort((a, b) => b.price - a.price);
+            break;
+          case 'price_bottom':
+            filteredCards = product.sort((a, b) => a.price - b.price);
+            break;
+          case 'name_top':
+            filteredCards = product.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+          case 'name_bottom':
+            filteredCards = product.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+          case 'date_new':
+            filteredCards = product.sort((a, b) => new Date(a.date) - new Date(b.date));
+            break;
+          case 'date_old':
+            filteredCards = product.sort((a, b) => new Date(b.date) - new Date(a.date));
+            break;
+          case 'default_sort':
+            filteredCards = [...defaultCards];
+            break;
+        }
+
+        getData()
+      })
+
+
+      $('.list_category').on('click','li a', function (event) {
+        event.preventDefault();
+        let categoryId = $(this).data('category_id');
+        
+        
+        if(categoryId === 1){
+          filteredCards = [...defaultCards];
+        }else{
+          filteredCards = product.filter(card => card.category_id === categoryId);
+        }
+        getData()
+
+
+        $('.list_category').find(`li a[data-category_id = ${categoryId}]`).css('textDecoration', 'underline').siblings().css('textDecoration', 'none');
+      })
+
+      $('#input_before_total_amount_filter').on('input', function () {
+        let minValue = parseInt($('#input_from_total_amount_filter').val());
+        let maxValue = parseInt($(this).val());
+        filteredCards = product.filter(card => card.price >= minValue && card.price <= maxValue);
+        getData()
+      })
+      $('#input_before_total_amount_filter_mobile').on('input', function () {
+        let minValue = parseInt($('#input_from_total_amount_filter_mobile').val());
+        let maxValue = parseInt($(this).val());
+        filteredCards = product.filter(card => card.price >= minValue && card.price <= maxValue);
+        getData()
+      })
+      $('.range-min').on('change', function () {
+        let minValue = parseInt($('#input_from_total_amount_filter').val());
+        let maxValue = parseInt($('#input_before_total_amount_filter').val());
+        filteredCards = product.filter(card => card.price >= minValue && card.price <= maxValue);
+        getData()
+      })
+      $('.range-max').on('change', function () {
+        let minValue = parseInt($('#input_from_total_amount_filter').val());
+        let maxValue = parseInt($('#input_before_total_amount_filter').val());
+        filteredCards = product.filter(card => card.price >= minValue && card.price <= maxValue);
+        getData()
+      })
+      $('.range-min_mobile').on('change', function () {
+        let minValue = parseInt($('#input_from_total_amount_filter_mobile').val());
+        let maxValue = parseInt($('#input_before_total_amount_filter_mobile').val());
+        filteredCards = product.filter(card => card.price >= minValue && card.price <= maxValue);
+        getData()
+      })
+      $('.range-max_mobile').on('change', function () {
+        let minValue = parseInt($('#input_from_total_amount_filter_mobile').val());
+        let maxValue = parseInt($('#input_before_total_amount_filter_mobile').val());
+        filteredCards = product.filter(card => card.price >= minValue && card.price <= maxValue);
+        getData()
+      })
+      $('.reset_filter').on('click', function () {
+        filteredCards = [...defaultCards];
+        getData()
+      })
+
+
+      // фильтр
+      // функциия для фльтра с диаппозоном
+      function rangeAmuntFilter(rangeInputEl, priceInputEl, rangeEl, procent_el = false) {
+        const rangeInput = rangeInputEl;
+        const priceInput = priceInputEl;
+        const range = rangeEl;
+        let priceGap = 10;
+
+        priceInput.each(function () {
+          $(this).on("input", function (e) {
+            let minPrice = parseInt(priceInput.eq(0).val());
+            let maxPrice = parseInt(priceInput.eq(1).val());
+
+
+            if (Number.isNaN(minPrice)) {
+              minPrice = 0;
+            }
+            if (Number.isNaN(maxPrice)) {
+              if (procent_el) {
+                maxPrice = 100;
+              } else {
+                maxPrice = 99000;
+              }
+            }
+
+            // Проверьте, является ли разница между maxPrice и minPrice больше или равной priceGap,
+            // и если maxPrice меньше или равен максимальному значению элемента rangeInput с индексом 1
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput.eq(1).attr("max")) {
+              if ($(e.target).hasClass("input-min")) {// Проверьте, имеет ли целевой элемент класс "input-min"
+                rangeInput.eq(0).val(minPrice);// Установите значение элемента rangeInput с индексом 0 равным minPrice
+                // inputForEl = minPrice;
+                range.css("left", `${(minPrice / rangeInput.eq(0).attr("max")) * 100}%`);// Обновите положение ползунка диапазона на основе нового значения minPrice
+              } else {
+                rangeInput.eq(1).val(maxPrice);// Установите значение элемента rangeInput с индексом 1 равным maxPrice
+                range.css("right", `${100 - (maxPrice / rangeInput.eq(1).attr("max")) * 100}%`);// Обновите положение ползунка диапазона на основе нового значения maxPrice
+              }
+            }
+          });
+        });
+
+        rangeInput.each(function () {
+          $(this).on("input", function (e) {
+            let minVal = parseInt(rangeInput.eq(0).val());
+            let maxVal = parseInt(rangeInput.eq(1).val());
+
+            if ((maxVal - minVal) < priceGap) {// Проверьте, является ли разница между maxVal и minVal меньше priceGap
+              if ($(e.target).hasClass("range-min")) {// Проверьте, имеет ли целевой элемент класс "range-min"
+                rangeInput.eq(0).val(maxVal - priceGap);// Установите значение элемента rangeInput с индексом 0 равным maxVal минус priceGap
+              } else {
+                rangeInput.eq(1).val(minVal + priceGap);// Установите значение элемента rangeInput с индексом 1 равным minVal плюс priceGap
+              }
+            } else {
+              // Установите значения элементов priceInput соответственно minVal и maxVal
+              priceInput.eq(0).val(minVal);
+              priceInput.eq(1).val(maxVal);
+
+              // Обновите положение ползунка диапазона на основе новых значений minVal и maxVal
+              range.css("left", `${(minVal / rangeInput.eq(0).attr("max")) * 100}%`);
+              range.css("right", `${100 - (maxVal / rangeInput.eq(1).attr("max")) * 100}%`);
+            }
+          });
+        });
+      }
+
+
+
+      function getData() {
+        const card_items = $('.card_items');
+        const modal = $('.modal');
+
+        let cardEl = '';
+
+        filteredCards.forEach(card => {
+
+          cardEl += `
+                        <div class="card_item col-lg-4 col-md-6 col-xs-12" onclick="openModal(${card.id})" style="cursor:pointer">
+                            <div class="card-body card flex-column mb-3">
+                                <div style="width: 100%; height:330px">
+                                    <img style="width: 100%; height:100%; object-fit:contain " src="${card.img_url}" alt="${card.name}">
+                                </div>
+                                <h5 class="card-title mt-4" style="height: 47px; overflow: hidden">${card.name}</h5>
+                                <p class="card-text mt-3" style="max-height: 100px; overflow: hidden">${card.description}</p>
+                                <p class="card-text" style="font-weight: 700; font-size: 20px;color: coral;">${card.price} ₽</p>
+                            </div>
+                        </div>
+                        `;
+
+        });
+
+        card_items.html(cardEl);
+
+        const list_category = $('.list_category');
+
+        let categoryEl = '';
+
+        category.forEach(category => { 
+            categoryEl += `<li class="py-1"><a style="cursor: pointer;" data-category_id="${category.id}">${category.name}</a></li> `;
+        });
+
+        list_category.html(categoryEl);
+
+        $('.list_category').find('li').hover(
+            function() {
+                // Функция для события mouseenter
+                $(this).css('textDecoration', 'underline');
+            },
+            function() {
+                // Функция для события mouseleave
+                $(this).css('textDecoration', 'none');
+            }
+        );
+
+        window.openModal = function (id) {
+          const card = filteredCards.find(card => card.id === id);
+
+          if (card) {
+            modal.find('.modal_title').text(card.name);
+            modal.find('.modal_price').text(card.price + ' ₽');
+            modal.find('.modal_description').text(card.description);
+            modal.find('.modal_image').html(`<img class="modal_image_img" style="width: 100%;height: 100%;" src="${card.img_url}" alt="${card.name}">`);
+            modal.find('.btn-primary').text('Купить');
+
+            $('.modal-dialog').css('maxWidth', '80vw');
+            $('.modal-content').css('height', '90vh');
+            $('.modal_image_img').css('objectFit', 'contain');
+            $('.modal_image').css('height', '50vh');
+            $('.modal_image').css('width', '100%');
+
+            if (window.matchMedia('(max-width: 767px)').matches) {
+              $('.modal_image').css('height', '350px');
+              $('.modal_image').css('width', '100%');
+              $('.modal-dialog').css('maxWidth', '100vw');
+              $('.modal-content').css('height', '100%');
+            }
+
+            modal.attr('id', `card_${id}`);
+            var myModal = new bootstrap.Modal(document.getElementById(`card_${id}`));
+            myModal.show();
+          } else {
+            console.log(`Карта с id ${id} не найдена`);
+          }
+        }
+
+        rangeAmuntFilter($('#range_input_total_amount input'), $('#price_input_total_amount input'), $('#slider_total_amount .progress_total_ammount'))
+        rangeAmuntFilter($('#range_input_total_amount_mobile input'), $('#price_input_total_amount_mobile input'), $('#slider_total_amount_mobile .progress_total_ammount'))
+      }
+
+
+
+    })
+
+
+  </script>
+
+  <script src="script.js"></script> <!-- Link to your JavaScript file if needed -->
+
+</body>
+
+</html>
